@@ -19,3 +19,10 @@ remove_link ${HOME}/.tmux.conf
 remove_link ${HOME}/.config/git/config
 remove_link ${HOME}/.config/sway/config
 remove_link ${HOME}/.sway_env
+remove_link ${HOME}/.Xdefaults
+
+# global configuration files
+#remove_link /etc/vconsole.conf
+#remove_link /usr/local/share/kbd/keymaps/escape.map
+#remove_link /etc/asound.conf
+#remove_link /etc/pacman.d/hooks/mirror.hook

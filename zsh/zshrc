@@ -17,3 +17,4 @@ setopt dvorak
 
 source .zsh_aliases
 source .zsh_prompt
+source .sway_env

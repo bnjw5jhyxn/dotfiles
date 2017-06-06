@@ -1,0 +1,4 @@
+URxvt.font: xft:Source Code Pro ExtraLight:size=29
+URxvt.background: black
+URxvt.foreground: white
+URxvt.scrollBar: false

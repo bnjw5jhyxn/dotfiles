@@ -200,7 +200,6 @@ bar {
     #position top
     status_command "while :; do echo '['$(acpi | grep -o '[CD]\|[[:digit:]]*%')']    '$(amixer get Master | grep -o '\[[[:digit:].-]*dB] \[[[:lower:]]*]')'    '$(date +%T); sleep 1; done"
     font 'Source Code Pro'
-    border none
     colors {
         statusline #ffffff
         background #323232
@@ -212,7 +211,7 @@ bar {
 default_border none
 
 # take a screencap
-bindsym Print exec swaygrab ~/screencap/$(date +%Y%m%dT%H%M%S).png
+bindsym Print exec swaygrab ~/screencap/$(date +%FT%T).png
 
 # lock the screen
 bindsym $mod+x exec swaylock

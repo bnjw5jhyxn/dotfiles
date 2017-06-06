@@ -1,0 +1,27 @@
+keymaps 0-2,4-6,8-9,12
+alt_is_meta
+include "linux-with-alt-and-altgr.inc"
+include "/usr/share/kbd/keymaps/i386/dvorak/dvorak.map.gz"
+strings as usual
+
+# map caps lock key to control
+keycode 58 = Control
+
+# map backspace to shift lock
+keycode 14 = Shift_Lock
+
+# map tab key to escape
+keycode 15 = Escape
+
+# map control i to tab
+control keycode 34 = Tab
+
+# map control h to backspace
+control keycode 36 = Delete
+
+# tab 15
+# caps lock 58
+# left shift 42
+# right shift 54
+# left control 29
+# right control 97

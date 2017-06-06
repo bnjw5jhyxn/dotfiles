@@ -5,8 +5,5 @@ alias make-username='~/password/generator 10 0 1'
 # use vi keys for info
 alias info='info --vi-keys'
 
-# set keyboard layout when starting sway
-alias sway='source ~/.sway_env; sway'
-
 # test terminal width
 alias print80='echo ---------1---------2---------3---------4---------5---------6---------7---------8'
