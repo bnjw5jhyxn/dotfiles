@@ -9,16 +9,18 @@ function remove_link {
 	fi
 }
 
-remove_link ${HOME}/.zshrc
-remove_link ${HOME}/.zsh_aliases
-remove_link ${HOME}/.zsh_prompt
+remove_link ${HOME}/.pam_environment
+remove_link ${XDG_CONFIG_HOME}/zsh/.zshrc
+remove_link ${XDG_CONFIG_HOME}/zsh/aliases
+remove_link ${XDG_CONFIG_HOME}/zsh/prompt
+remove_link ${XDG_CONFIG_HOME}/zsh/.zshenv
 remove_link ${HOME}/.vim/vimrc
 remove_link ${HOME}/.lynxrc
+remove_link ${HOME}/.gnupg/gpg-agent.conf
 remove_link ${HOME}/.ssh/config
 remove_link ${HOME}/.tmux.conf
-remove_link ${HOME}/.config/git/config
-remove_link ${HOME}/.config/sway/config
-remove_link ${HOME}/.sway_env
+remove_link ${XDG_CONFIG_HOME}/git/config
+remove_link ${XDG_CONFIG_HOME}/sway/config
 remove_link ${HOME}/.Xdefaults
 
 # global configuration files

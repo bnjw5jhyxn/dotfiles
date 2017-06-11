@@ -1,4 +1,0 @@
-# environment variables for sway
-export XKB_DEFAULT_LAYOUT=us,jp
-export XKB_DEFAULT_VARIANT=dvorak,kana
-export XKB_DEFAULT_OPTIONS=ctrl:nocaps,grp:alt_shift_toggle,shift:both_shiftlock

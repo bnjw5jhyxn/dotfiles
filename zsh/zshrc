@@ -1,12 +1,12 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh/histfile
+HISTFILE=~/.config/zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd beep extendedglob
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/steve/.zshrc'
+zstyle :compinstall filename '/home/steve/.config/zsh/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -15,6 +15,9 @@ compinit
 # use dvorak for spelling correction
 setopt dvorak
 
-source .zsh_aliases
-source .zsh_prompt
-source .sway_env
+# set aliases and prompt
+source $HOME/.config/zsh/aliases
+source $HOME/.config/zsh/prompt
+
+# notify GPG agent of current TTY
+gpg-connect-agent updatestartuptty /bye > /dev/null

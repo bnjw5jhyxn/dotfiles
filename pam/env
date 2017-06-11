@@ -1,0 +1,16 @@
+# environment variables constant for the duration of the login session
+
+# XDG config home
+XDG_CONFIG_HOME     DEFAULT=@{HOME}/.config
+
+# zsh directory
+ZDOTDIR             DEFAULT=${XDG_CONFIG_HOME}/zsh
+
+# environment variables for sway
+XKB_DEFAULT_LAYOUT  DEFAULT=us,jp
+XKB_DEFAULT_VARIANT DEFAULT=dvorak,kana
+XKB_DEFAULT_OPTIONS DEFAULT=ctrl:nocaps,grp:alt_shift_toggle,shift:both_shiftlock
+
+# SSH agent emulation with GPG agent
+SSH_AGENT_PID       DEFAULT=
+SSH_AUTH_SOCK       DEFAULT=${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
