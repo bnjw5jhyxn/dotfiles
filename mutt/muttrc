@@ -1,0 +1,17 @@
+set header_cache          = ~/.cache/mutt
+set imap_check_subscribed
+set imap_keepalive        = 300
+unset imap_passive
+set mail_check            = 60
+set mbox_type             = Maildir
+
+source "gpg --decrypt $HOME/.mutt/pass.gpg |"
+
+source "~/.mutt/gmail"
+folder-hook $folder 'source ~/.mutt/gmail'
+
+source "~/.mutt/scarletmail"
+folder-hook $folder 'source ~/.mutt/scarletmail'
+
+source "~/.mutt/icloud"
+folder-hook $folder 'source ~/.mutt/icloud'

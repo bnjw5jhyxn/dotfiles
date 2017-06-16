@@ -25,6 +25,12 @@ bind-key -T root M-Enter new-window
 bind-key -T root M-n next-window
 bind-key -T root M-p previous-window
 
+# resize panes
+bind-key -T root M-H resize-pane -L
+bind-key -T root M-J resize-pane -D
+bind-key -T root M-K resize-pane -U
+bind-key -T root M-L resize-pane -R
+
 # set lock options
 set-option -g lock-command vlock
 bind-key -T root M-x lock-session

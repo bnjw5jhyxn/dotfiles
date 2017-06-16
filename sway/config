@@ -214,11 +214,20 @@ default_border none
 bindsym Print exec swaygrab ~/screencap/$(date +%FT%T).png
 
 # lock the screen
-bindsym $mod+x exec swaylock
+bindsym $mod+x exec swaylock --color 000020
 
 # volume control
 bindsym XF86AudioMute exec amixer set Master toggle
 bindsym XF86AudioLowerVolume exec amixer set Master 1dB-
 bindsym XF86AudioRaiseVolume exec amixer set Master 1dB+
+
+# chromium
+bindsym $mod+c exec chromium
+
+# qgo
+bindsym $mod+q exec qgo
+
+# gopanda
+bindsym $mod+p exec gopanda
 
 include /etc/sway/config.d/*
