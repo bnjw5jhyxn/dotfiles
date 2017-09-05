@@ -1,0 +1,22 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# enable colors for ls
+alias ls='ls --color=auto'
+
+# set vi mode
+set -o vi
+
+# use vi mode for info
+alias info='info --vi-keys'
+
+# set prompt
+PS1='\W \$ '
+
+# set PATH
+# (I would do this in ~/.pam_environment, but it doesn't seem to work)
+export PATH=$HOME/bin:$PATH

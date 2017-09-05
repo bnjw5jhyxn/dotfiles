@@ -9,7 +9,7 @@ bind-key M-a send-prefix
 
 # customize status line
 set-option -g status-style bg=black,fg=white
-set-option -g status-right "[#(acpi | grep -o '[CD]') #(acpi | grep -o '[[:digit:]]*%')]   #(amixer get Master | grep -o '\[[[:digit:].-]*dB] \[o[fn]*]')   %T"
+set-option -g status-right "[#(acpi | grep -o '[CD]') #(acpi | grep 'Battery 0' | grep -o '[[:digit:]]*%')]   #(amixer get Master | grep -o '\[[[:digit:].-]*dB] \[o[fn]*]')   %T"
 
 # add sway-like keybindings within windows
 bind-key -T root M-h select-pane -L
@@ -21,7 +21,7 @@ bind-key -T root M-v split-window -v
 bind-key -T root M-b split-window -h
 
 # window keybindings
-bind-key -T root M-Enter new-window
+bind-key -T root M-w new-window
 bind-key -T root M-n next-window
 bind-key -T root M-p previous-window
 

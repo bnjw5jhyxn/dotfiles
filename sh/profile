@@ -1,0 +1,16 @@
+#
+# $HOME/.profile
+#
+
+# enable colored output from ls
+alias ls='ls --color=auto'
+
+# set vi mode
+set -o vi
+
+# set prompt
+export PS1='$(basename $(pwd)) $ '
+
+# set PATH
+# (I would do this in $HOME/.pam_environment, but it doesn't seem to work)
+export PATH=$HOME/bin:$PATH

@@ -43,12 +43,12 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-input "2:14:ETPS/2_Elantech_Touchpad" {
-    dwt enabled
-    natural_scroll enabled
-    pointer_accel 1
-    tap enabled
-}
+#input "2:7:SynPS/2_Synaptics_TouchPad" {
+#    dwt enabled
+#    natural_scroll enabled
+#    pointer_accel 1
+#    tap enabled
+#}
 
 input "1133:16394:Logitec" {
     pointer_accel 1

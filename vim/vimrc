@@ -1,4 +1,4 @@
-source /usr/share/vim/vim80/vimrc_example.vim
+source $VIMRUNTIME/vimrc_example.vim
 set nobackup
 set noundofile
 set nowrap

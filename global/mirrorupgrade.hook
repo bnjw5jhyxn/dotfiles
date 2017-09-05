@@ -1,3 +1,5 @@
+# taken from https://wiki.archlinux.org/index.php/Reflector
+
 [Trigger]
 Operation = Upgrade
 Type = Package

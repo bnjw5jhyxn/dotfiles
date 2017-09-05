@@ -1,2 +1,0 @@
-# environment variables specific to each shell invocation
-export GPG_TTY=$(tty)

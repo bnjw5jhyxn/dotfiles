@@ -1,7 +1,7 @@
 keymaps 0-2,4-6,8-9,12
 alt_is_meta
 include "linux-with-alt-and-altgr.inc"
-include "/usr/share/kbd/keymaps/i386/dvorak/dvorak.map.gz"
+include "/usr/share/kbd/keymaps/i386/dvorak/dvorak-programmer.map.gz"
 strings as usual
 
 # map caps lock key to control
