@@ -9,7 +9,7 @@ bind-key M-a send-prefix
 
 # customize status line
 set-option -g status-style bg=black,fg=white
-set-option -g status-right "[#(acpi | grep -o '[CD]') #(acpi | grep 'Battery 0' | grep -o '[[:digit:]]*%')]   #(amixer get Master | grep -o '\[[[:digit:].-]*dB] \[o[fn]*]')   %T"
+set-option -g status-right "[#(acpi | grep -v 'rate information unavailable' | grep -o '[CDU]') #(acpi | grep -v 'rate information unavailable' | grep -o '[[:digit:]]*%')]   #(amixer get Master | grep -o '\[[[:digit:].-]*dB] \[o[fn]*]')   %T"
 
 # add sway-like keybindings within windows
 bind-key -T root M-h select-pane -L

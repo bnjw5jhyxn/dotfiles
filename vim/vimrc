@@ -2,4 +2,9 @@ source $VIMRUNTIME/vimrc_example.vim
 set nobackup
 set noundofile
 set nowrap
+set number
 nnoremap <C-L> :nohl<CR><C-L>
+colorscheme ron
+set spelllang=en_us
+set spellfile=$HOME/miscellanea/vimspell.utf-8.add
+set spell

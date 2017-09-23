@@ -37,6 +37,7 @@ vim_symlink_setup() {
 	create_link $PWD/vim/vimrc $HOME/.vim/vimrc
 	create_link $PWD/vim/filetype.vim $HOME/.vim/filetype.vim
 	create_link $PWD/vim/text.vim $HOME/.vim/after/ftplugin/text.vim
+	create_link $PWD/vim/tex.vim $HOME/.vim/after/ftplugin/tex.vim
 	create_link $PWD/vim/html.vim $HOME/.vim/after/ftplugin/html.vim
 	create_link $PWD/vim/javascript.vim $HOME/.vim/after/ftplugin/javascript.vim
 }
@@ -65,9 +66,11 @@ mutt_symlink_setup() {
 	create_link $PWD/mutt/icloud $HOME/.mutt/icloud
 }
 
-sway_symlink_setup() {
-	create_link $PWD/sway/config $XDG_CONFIG_HOME/sway/config
-	create_link $PWD/sway/Xdefaults $HOME/.Xdefaults
+gui_symlink_setup() {
+	create_link $PWD/gui/config $XDG_CONFIG_HOME/sway/config
+	create_link $PWD/gui/Xdefaults $HOME/.Xdefaults
+	create_link $PWD/gui/xmonad.hs $HOME/.xmonad/xmonad.hs
+	create_link $PWD/gui/xinitrc $HOME/.xinitrc
 }
 
 global_symlink_setup() {
@@ -90,7 +93,7 @@ all_symlink_setup() {
 	ssh_symlink_setup
 	git_symlink_setup
 	mutt_symlink_setup
-	sway_symlink_setup
+	gui_symlink_setup
 	#global_symlink_setup
 }
 
@@ -108,6 +111,7 @@ vim_symlink_setdown() {
 	remove_link $HOME/.vim/vimrc
 	remove_link $HOME/.vim/filetype.vim
 	remove_link $HOME/.vim/after/ftplugin/text.vim
+	remove_link $HOME/.vim/after/ftplugin/tex.vim
 	remove_link $HOME/.vim/after/ftplugin/html.vim
 	remove_link $HOME/.vim/after/ftplugin/javascript.vim
 }
@@ -136,9 +140,11 @@ mutt_symlink_setdown() {
 	remove_link $HOME/.mutt/icloud
 }
 
-sway_symlink_setdown() {
+gui_symlink_setdown() {
 	remove_link $XDG_CONFIG_HOME/sway/config
 	remove_link $HOME/.Xdefaults
+	remove_link $HOME/.xmonad/xmonad.hs
+	remove_link $HOME/.xinitrc
 }
 
 global_symlink_setdown() {
@@ -157,7 +163,7 @@ all_symlink_setdown() {
 	ssh_symlink_setdown
 	git_symlink_setdown
 	mutt_symlink_setdown
-	sway_symlink_setdown
+	gui_symlink_setdown
 	#global_symlink_setdown
 }
 

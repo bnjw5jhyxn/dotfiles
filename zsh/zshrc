@@ -23,5 +23,9 @@ alias info='info --vi-keys'
 prompt off
 PROMPT='%1~ %# '
 
+# keyboard layout aliases
+alias aoeu='sudo loadkeys us'
+alias asdf='sudo loadkeys /usr/local/share/kbd/keymaps/dvp.map'
+
 # notify GPG agent of current TTY
 #gpg-connect-agent updatestartuptty /bye > /dev/null
