@@ -30,7 +30,7 @@ env_symlink_setup() {
 sh_symlink_setup() {
 	create_link $PWD/sh/profile $HOME/.profile
 	create_link $PWD/sh/bashrc $HOME/.bashrc
-	create_link $PWD/zsh/zshrc $ZDOTDIR/.zshrc
+	create_link $PWD/sh/zshrc $ZDOTDIR/.zshrc
 }
 
 vim_symlink_setup() {
