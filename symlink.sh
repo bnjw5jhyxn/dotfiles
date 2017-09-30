@@ -1,4 +1,6 @@
 #!/usr/bin/dash
+XDG_CONFIG_HOME = $HOME/.config
+ZDOTDIR = $XDG_CONFIG_HOME/zsh
 
 alias make_directory='mkdir --parents --verbose'
 
@@ -15,12 +17,12 @@ remove_link() {
 
 
 dir_setup() {
-	make_directory $HOME/.config/zsh
+	make_directory $ZDOTDIR
 	make_directory $HOME/.vim/after/ftplugin
 	make_directory $HOME/.gnupg
-	make_directory $HOME/.config/git
+	make_directory $XDG_CONFIG_HOME/git
 	make_directory $HOME/.mutt
-	make_directory $HOME/.config/sway
+	make_directory $XDG_CONFIG_HOME/sway
 }
 
 env_symlink_setup() {
