@@ -1,6 +1,6 @@
 #!/usr/bin/dash
-XDG_CONFIG_HOME = $HOME/.config
-ZDOTDIR = $XDG_CONFIG_HOME/zsh
+XDG_CONFIG_HOME=$HOME/.config
+ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
 alias make_directory='mkdir --parents --verbose'
 
@@ -23,6 +23,7 @@ dir_setup() {
 	make_directory $XDG_CONFIG_HOME/git
 	make_directory $HOME/.mutt
 	make_directory $XDG_CONFIG_HOME/sway
+	make_directory $HOME/.xmonad
 }
 
 env_symlink_setup() {
