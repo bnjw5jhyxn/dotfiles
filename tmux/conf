@@ -8,30 +8,33 @@ set-option -g prefix M-a
 bind-key M-a send-prefix
 
 # customize status line
-set-option -g status-style bg=black,fg=white
+#set-option -g status-style bg=black,fg=white
 #set-option -g status-right "[#(acpi | grep -v 'rate information unavailable' | grep -o '[CDU]') #(acpi | grep -v 'rate information unavailable' | grep -o '[[:digit:]]*%')]   #(amixer get Master | grep -o '\[[[:digit:].-]*dB] \[o[fn]*]')   %T"
 set-option -g status-right "%T"
 
 # add sway-like keybindings within windows
-bind-key -T root M-h select-pane -L
-bind-key -T root M-j select-pane -D
-bind-key -T root M-k select-pane -U
-bind-key -T root M-l select-pane -R
+bind-key -n M-h select-pane -L
+bind-key -n M-j select-pane -D
+bind-key -n M-k select-pane -U
+bind-key -n M-l select-pane -R
 
-bind-key -T root M-v split-window -v
-bind-key -T root M-b split-window -h
+bind-key -n M-v split-window -v
+bind-key -n M-b split-window -h
 
 # window keybindings
-bind-key -T root M-Enter new-window
-bind-key -T root M-n next-window
-bind-key -T root M-p previous-window
+bind-key -n M-w new-window
+bind-key -n M-n next-window
+bind-key -n M-p previous-window
 
 # resize panes
-bind-key -T root M-H resize-pane -L
-bind-key -T root M-J resize-pane -D
-bind-key -T root M-K resize-pane -U
-bind-key -T root M-L resize-pane -R
+bind-key -n M-H resize-pane -L
+bind-key -n M-J resize-pane -D
+bind-key -n M-K resize-pane -U
+bind-key -n M-L resize-pane -R
+
+# detach from session
+bind-key -n M-x detach-client
 
 # set lock options
-set-option -g lock-command vlock
-bind-key -T root M-x lock-session
+#set-option -g lock-command vlock
+#bind-key -n M-x lock-session
