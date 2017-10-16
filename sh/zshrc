@@ -20,8 +20,14 @@ setopt dvorak
 alias info='info --vi-keys'
 
 # set prompt
+alias battery_charge="echo '['\$(acpi | grep -v 'rate information unavailable' | grep -o '[CDU]\|[[:digit:]]*%')'%]'"
 prompt off
 PROMPT='%1~ %# '
+if [[ $(tty) = /dev/tty*(#qN) ]]
+then
+	RPROMPT="%(?..%?   )\$(echo '['\$(acpi | grep -v 'rate information unavailable' | grep -o '[CDU]\|[[:digit:]]*%')'%]')   \$(amixer get Master | grep -o '\[[[:digit:].-]*dB\] \[[[:lower:]]*\]')   %*"
+fi
+setopt prompt_subst
 
 # keyboard layout aliases
 alias aoeu='sudo loadkeys us'
