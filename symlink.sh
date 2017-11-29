@@ -24,6 +24,7 @@ dir_setup() {
 	make_directory $HOME/.mutt
 	make_directory $XDG_CONFIG_HOME/sway
 	make_directory $HOME/.xmonad
+	make_directory $XDG_CONFIG_HOME/systemd/user
 }
 
 env_symlink_setup() {

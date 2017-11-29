@@ -19,6 +19,9 @@ control keycode 34 = Tab
 # map control h to backspace
 control keycode 36 = Delete
 
+# add support for backtick
+shift keycode 13 = grave
+
 # tab 15
 # caps lock 58
 # left shift 42
