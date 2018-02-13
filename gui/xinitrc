@@ -1,2 +1,0 @@
-setxkbmap -layout us,us -variant dvp, -option 'ctrl:nocaps,grp:alt_shift_toggle'
-exec xmonad

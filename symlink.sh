@@ -23,7 +23,6 @@ dir_setup() {
 	make_directory $XDG_CONFIG_HOME/git
 	make_directory $HOME/.mutt
 	make_directory $XDG_CONFIG_HOME/sway
-	make_directory $HOME/.xmonad
 	make_directory $XDG_CONFIG_HOME/systemd/user
 }
 
@@ -73,8 +72,6 @@ mutt_symlink_setup() {
 gui_symlink_setup() {
 	create_link $PWD/gui/config $XDG_CONFIG_HOME/sway/config
 	create_link $PWD/gui/Xdefaults $HOME/.Xdefaults
-	create_link $PWD/gui/xmonad.hs $HOME/.xmonad/xmonad.hs
-	create_link $PWD/gui/xinitrc $HOME/.xinitrc
 }
 
 global_symlink_setup() {
@@ -147,8 +144,6 @@ mutt_symlink_setdown() {
 gui_symlink_setdown() {
 	remove_link $XDG_CONFIG_HOME/sway/config
 	remove_link $HOME/.Xdefaults
-	remove_link $HOME/.xmonad/xmonad.hs
-	remove_link $HOME/.xinitrc
 }
 
 global_symlink_setdown() {
