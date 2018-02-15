@@ -25,7 +25,7 @@ prompt off
 PROMPT='%1~ %# '
 if [[ $(tty) = /dev/tty*(#qN) ]]
 then
-	RPROMPT="%(?..%?   )\$(echo '['\$(acpi | grep -v 'rate information unavailable' | grep -o '[CDU]\|[[:digit:]]*%')'%]')   \$(amixer get Master | grep -o '\[[[:digit:].-]*dB\] \[[[:lower:]]*\]')   %*"
+	RPROMPT="%(?..%?   )\$(echo '['\$(acpi | grep -v 'rate information unavailable' | grep -o '[CDU]\|[[:digit:]]*%')'%]')   \$(cat /sys/class/backlight/intel_backlight/brightness)   \$(amixer get Master | grep -o '\[[[:digit:].-]*dB\] \[[[:lower:]]*\]')   %*"
 fi
 setopt prompt_subst
 
