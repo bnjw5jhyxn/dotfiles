@@ -3,10 +3,11 @@ set nobackup
 set noundofile
 set nowrap
 set number
+set mouse=
 colorscheme ron
 set spelllang=en_us
 set spellfile=$HOME/miscellanea/vimspell.utf-8.add
-let mapleader = "-"
+let mapleader="-"
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <Leader>" viw<Esc>a"<Esc>bi"<Esc>lel
@@ -14,4 +15,4 @@ nnoremap <Leader>' viw<Esc>a'<Esc>bi'<Esc>lel
 vnoremap <Leader>" <Esc>`>a"<Esc>`<i"<Esc>`>
 vnoremap <Leader>' <Esc>`>a'<Esc>`<i'<Esc>`>
 nnoremap <C-L> :nohl<CR><C-L>
-inoremap <C-U> <Esc>bveUea
+inoremap <C-U> <Esc>vbUea
