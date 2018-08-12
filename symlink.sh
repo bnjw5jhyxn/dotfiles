@@ -21,7 +21,6 @@ dir_setup() {
 	make_directory $HOME/.vim/after/ftplugin
 	make_directory $HOME/.gnupg
 	make_directory $XDG_CONFIG_HOME/git
-	make_directory $HOME/.mutt
 	make_directory $XDG_CONFIG_HOME/sway
 	make_directory $XDG_CONFIG_HOME/systemd/user
 }
@@ -30,27 +29,29 @@ env_symlink_setup() {
 	create_link $PWD/pam/env $HOME/.pam_environment
 }
 
-sh_symlink_setup() {
-	create_link $PWD/sh/profile $HOME/.profile
-	create_link $PWD/sh/bashrc $HOME/.bashrc
-	create_link $PWD/sh/zshrc $ZDOTDIR/.zshrc
-}
-
-vim_symlink_setup() {
-	create_link $PWD/vim/vimrc $HOME/.vim/vimrc
-	create_link $PWD/vim/filetype.vim $HOME/.vim/filetype.vim
-	create_link $PWD/vim/text.vim $HOME/.vim/after/ftplugin/text.vim
-	create_link $PWD/vim/tex.vim $HOME/.vim/after/ftplugin/tex.vim
-	create_link $PWD/vim/html.vim $HOME/.vim/after/ftplugin/html.vim
-	create_link $PWD/vim/javascript.vim $HOME/.vim/after/ftplugin/javascript.vim
+git_symlink_setup() {
+	create_link $PWD/git/config $XDG_CONFIG_HOME/git/config
 }
 
 gnupg_symlink_setup() {
 	create_link $PWD/gnupg/agent.conf $HOME/.gnupg/gpg-agent.conf
 }
 
-tmux_symlink_setup() {
-	create_link $PWD/tmux/conf $HOME/.tmux.conf
+gui_symlink_setup() {
+	create_link $PWD/gui/sway_config $XDG_CONFIG_HOME/sway/config
+	create_link $PWD/gui/Xdefaults $HOME/.Xdefaults
+	create_link $PWD/gui/termite_config $XDG_CONFIG_HOME/termite/config
+}
+
+python_symlink_setup() {
+	create_link $PWD/python/pip.conf $XDG_CONFIG_HOME/pip/pip.conf
+}
+
+sh_symlink_setup() {
+	create_link $PWD/sh/profile $HOME/.profile
+	create_link $PWD/sh/bashrc $HOME/.bashrc
+	create_link $PWD/sh/zshrc $ZDOTDIR/.zshrc
+	create_link $PWD/sh/zlogin $ZDOTDIR/.zlogin
 }
 
 ssh_symlink_setup() {
@@ -58,20 +59,18 @@ ssh_symlink_setup() {
 	create_link $PWD/ssh/ssh-agent.service $XDG_CONFIG_HOME/systemd/user/ssh-agent.service
 }
 
-git_symlink_setup() {
-	create_link $PWD/git/config $XDG_CONFIG_HOME/git/config
+tmux_symlink_setup() {
+	create_link $PWD/tmux/conf $HOME/.tmux.conf
 }
 
-mutt_symlink_setup() {
-	create_link $PWD/mutt/muttrc $HOME/.mutt/muttrc
-	create_link $PWD/mutt/gmail $HOME/.mutt/gmail
-	create_link $PWD/mutt/scarletmail $HOME/.mutt/scarletmail
-	create_link $PWD/mutt/icloud $HOME/.mutt/icloud
-}
-
-gui_symlink_setup() {
-	create_link $PWD/gui/config $XDG_CONFIG_HOME/sway/config
-	create_link $PWD/gui/Xdefaults $HOME/.Xdefaults
+vim_symlink_setup() {
+	create_link $PWD/vim/vimrc $HOME/.vim/vimrc
+	create_link $PWD/vim/filetype.vim $HOME/.vim/filetype.vim
+	create_link $PWD/vim/html.vim $HOME/.vim/after/ftplugin/html.vim
+	create_link $PWD/vim/javascript.vim $HOME/.vim/after/ftplugin/javascript.vim
+	create_link $PWD/vim/json.vim $HOME/.vim/after/ftplugin/json.vim
+	create_link $PWD/vim/tex.vim $HOME/.vim/after/ftplugin/tex.vim
+	create_link $PWD/vim/text.vim $HOME/.vim/after/ftplugin/text.vim
 }
 
 global_symlink_setup() {
@@ -87,14 +86,14 @@ global_symlink_setup() {
 all_symlink_setup() {
 	dir_setup
 	env_symlink_setup
-	sh_symlink_setup
-	vim_symlink_setup
-	gnupg_symlink_setup
-	tmux_symlink_setup
-	ssh_symlink_setup
 	git_symlink_setup
-	mutt_symlink_setup
+	gnupg_symlink_setup
 	gui_symlink_setup
+	python_symlink_setup
+	sh_symlink_setup
+	ssh_symlink_setup
+	tmux_symlink_setup
+	vim_symlink_setup
 	#global_symlink_setup
 }
 
@@ -102,27 +101,29 @@ env_symlink_setdown() {
 	remove_link $HOME/.pam_environment
 }
 
-sh_symlink_setdown() {
-	remove_link $HOME/.profile
-	remove_link $HOME/.bashrc
-	remove_link $ZDOTDIR/.zshrc
+git_symlink_setdown() {
+	remove_link $XDG_CONFIG_HOME/git/config
 }
 
-vim_symlink_setdown() {
-	remove_link $HOME/.vim/vimrc
-	remove_link $HOME/.vim/filetype.vim
-	remove_link $HOME/.vim/after/ftplugin/text.vim
-	remove_link $HOME/.vim/after/ftplugin/tex.vim
-	remove_link $HOME/.vim/after/ftplugin/html.vim
-	remove_link $HOME/.vim/after/ftplugin/javascript.vim
+gui_symlink_setdown() {
+	remove_link $XDG_CONFIG_HOME/sway/config
+	remove_link $HOME/.Xdefaults
+	remove_link $XDG_CONFIG_HOME/termite/config
 }
 
 gnupg_symlink_setdown() {
 	remove_link $HOME/.gnupg/gpg-agent.conf
 }
 
-tmux_symlink_setdown() {
-	remove_link $HOME/.tmux.conf
+python_symlink_setdown() {
+	remove_link $XDG_CONFIG_HOME/pip/pip.conf
+}
+
+sh_symlink_setdown() {
+	remove_link $HOME/.profile
+	remove_link $HOME/.bashrc
+	remove_link $ZDOTDIR/.zshrc
+	remove_link $ZDOTDIR/.zlogin
 }
 
 ssh_symlink_setdown() {
@@ -130,20 +131,18 @@ ssh_symlink_setdown() {
 	remove_link $XDG_CONFIG_HOME/systemd/user/ssh-agent.service
 }
 
-git_symlink_setdown() {
-	remove_link $XDG_CONFIG_HOME/git/config
+tmux_symlink_setdown() {
+	remove_link $HOME/.tmux.conf
 }
 
-mutt_symlink_setdown() {
-	remove_link $HOME/.mutt/muttrc
-	remove_link $HOME/.mutt/gmail
-	remove_link $HOME/.mutt/scarletmail
-	remove_link $HOME/.mutt/icloud
-}
-
-gui_symlink_setdown() {
-	remove_link $XDG_CONFIG_HOME/sway/config
-	remove_link $HOME/.Xdefaults
+vim_symlink_setdown() {
+	remove_link $HOME/.vim/vimrc
+	remove_link $HOME/.vim/filetype.vim
+	remove_link $HOME/.vim/after/ftplugin/html.vim
+	remove_link $HOME/.vim/after/ftplugin/javascript.vim
+	remove_link $HOME/.vim/after/ftplugin/json.vim
+	remove_link $HOME/.vim/after/ftplugin/tex.vim
+	remove_link $HOME/.vim/after/ftplugin/text.vim
 }
 
 global_symlink_setdown() {
@@ -155,14 +154,14 @@ global_symlink_setdown() {
 
 all_symlink_setdown() {
 	env_symlink_setdown
-	sh_symlink_setdown
-	vim_symlink_setdown
-	gnupg_symlink_setdown
-	tmux_symlink_setdown
-	ssh_symlink_setdown
 	git_symlink_setdown
-	mutt_symlink_setdown
+	gnupg_symlink_setdown
 	gui_symlink_setdown
+	python_symlink_setdown
+	sh_symlink_setdown
+	ssh_symlink_setdown
+	tmux_symlink_setdown
+	vim_symlink_setdown
 	#global_symlink_setdown
 }
 

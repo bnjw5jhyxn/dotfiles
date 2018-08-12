@@ -32,6 +32,9 @@ setopt prompt_subst
 # keyboard layout aliases
 alias aoeu='sudo loadkeys us'
 alias asdf='sudo loadkeys /usr/local/share/kbd/keymaps/dvp.map'
+alias sway='env XKB_DEFAULT_LAYOUT=us,us XKB_DEFAULT_VARIANT=dvp, XKB_DEFAULT_OPTIONS=ctrl:nocaps,grp:alt_shift_toggle sway'
+alias pip='python -m pip'
+alias aws='python -m awscli'
 
 # notify GPG agent of current TTY
 #gpg-connect-agent updatestartuptty /bye > /dev/null

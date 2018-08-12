@@ -4,8 +4,8 @@ set-option -g status-keys vi
 
 # change prefix from control-b to alt-a
 unbind-key C-b
-set-option -g prefix M-a
-bind-key M-a send-prefix
+set-option -g prefix C-a
+bind-key C-a send-prefix
 
 # customize status line
 #set-option -g status-style bg=black,fg=white

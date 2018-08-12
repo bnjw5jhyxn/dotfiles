@@ -226,6 +226,9 @@ bar {
     }
 }
 
+# enable keynav
+exec keynav
+
 # window borders
 default_border none
 
@@ -243,14 +246,5 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 0.75dB+
 # screen brightness
 bindsym XF86MonBrightnessUp exec brightness.sh 100+
 bindsym XF86MonBrightnessDown exec brightness.sh 100-
-
-# chromium
-bindsym $mod+c exec chromium
-
-# qgo
-bindsym $mod+q exec qgo
-
-# gopanda
-bindsym $mod+p exec gopanda
 
 include /etc/sway/config.d/*
