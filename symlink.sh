@@ -16,54 +16,44 @@ remove_link() {
 }
 
 
-dir_setup() {
+symlink_setup() {
 	make_directory $ZDOTDIR
 	make_directory $HOME/.vim/after/ftplugin
 	make_directory $HOME/.gnupg
+	make_directory $HOME/.ssh
 	make_directory $XDG_CONFIG_HOME/git
+	make_directory $XDG_CONFIG_HOME/pip
 	make_directory $XDG_CONFIG_HOME/sway
+	make_directory $XDG_CONFIG_HOME/termite
+	make_directory $XDG_CONFIG_HOME/waybar
 	make_directory $XDG_CONFIG_HOME/systemd/user
-}
-
-env_symlink_setup() {
+	make_directory $HOME/xdg/desktop
+	make_directory $HOME/xdg/documents
+	make_directory $HOME/xdg/downloads
+	make_directory $HOME/xdg/music
+	make_directory $HOME/xdg/pictures
+	make_directory $HOME/xdg/public
+	make_directory $HOME/xdg/templates
+	make_directory $HOME/xdg/videos
 	create_link $PWD/pam/env $HOME/.pam_environment
-}
-
-git_symlink_setup() {
 	create_link $PWD/git/config $XDG_CONFIG_HOME/git/config
-}
-
-gnupg_symlink_setup() {
 	create_link $PWD/gnupg/agent.conf $HOME/.gnupg/gpg-agent.conf
-}
-
-gui_symlink_setup() {
 	create_link $PWD/gui/sway_config $XDG_CONFIG_HOME/sway/config
-	create_link $PWD/gui/Xdefaults $HOME/.Xdefaults
 	create_link $PWD/gui/termite_config $XDG_CONFIG_HOME/termite/config
-}
-
-python_symlink_setup() {
+	create_link $PWD/gui/user-dirs.dirs $XDG_CONFIG_HOME/user-dirs.dirs
+	create_link $PWD/gui/waybar_config $XDG_CONFIG_HOME/waybar/config
+	create_link $PWD/gui/waybar_style.css $XDG_CONFIG_HOME/waybar/style.css
+	create_link $PWD/gui/waybar_alsa.sh $XDG_CONFIG_HOME/waybar/alsa.sh
+	create_link $PWD/gui/waybar_brightness.sh $XDG_CONFIG_HOME/waybar/brightness.sh
+	create_link $PWD/gui/Xdefaults $HOME/.Xdefaults
 	create_link $PWD/python/pip.conf $XDG_CONFIG_HOME/pip/pip.conf
-}
-
-sh_symlink_setup() {
 	create_link $PWD/sh/profile $HOME/.profile
 	create_link $PWD/sh/bashrc $HOME/.bashrc
 	create_link $PWD/sh/zshrc $ZDOTDIR/.zshrc
 	create_link $PWD/sh/zlogin $ZDOTDIR/.zlogin
-}
-
-ssh_symlink_setup() {
 	create_link $PWD/ssh/config $HOME/.ssh/config
 	create_link $PWD/ssh/ssh-agent.service $XDG_CONFIG_HOME/systemd/user/ssh-agent.service
-}
-
-tmux_symlink_setup() {
 	create_link $PWD/tmux/conf $HOME/.tmux.conf
-}
-
-vim_symlink_setup() {
 	create_link $PWD/vim/vimrc $HOME/.vim/vimrc
 	create_link $PWD/vim/filetype.vim $HOME/.vim/filetype.vim
 	create_link $PWD/vim/html.vim $HOME/.vim/after/ftplugin/html.vim
@@ -71,71 +61,35 @@ vim_symlink_setup() {
 	create_link $PWD/vim/json.vim $HOME/.vim/after/ftplugin/json.vim
 	create_link $PWD/vim/tex.vim $HOME/.vim/after/ftplugin/tex.vim
 	create_link $PWD/vim/text.vim $HOME/.vim/after/ftplugin/text.vim
-}
-
-global_symlink_setup() {
 	# global configuration files
 	# these are machine specific
 	# and require root access to modify
-	create_link $PWD/global/vconsole.conf /etc/vconsole.conf
-	create_link $PWD/global/dvp.map /usr/local/share/kbd/keymaps/dvp.map
+	#create_link $PWD/global/vconsole.conf /etc/vconsole.conf
+	#create_link $PWD/global/dvp.map /usr/local/share/kbd/keymaps/dvp.map
 	#create_link $PWD/global/asound.conf /etc/asound.conf
-	create_link $PWD/global/mirrorupgrade.hook /etc/pacman.d/hooks/mirrorupgrade.hook
+	#create_link $PWD/global/mirrorupgrade.hook /etc/pacman.d/hooks/mirrorupgrade.hook
 }
 
-all_symlink_setup() {
-	dir_setup
-	env_symlink_setup
-	git_symlink_setup
-	gnupg_symlink_setup
-	gui_symlink_setup
-	python_symlink_setup
-	sh_symlink_setup
-	ssh_symlink_setup
-	tmux_symlink_setup
-	vim_symlink_setup
-	#global_symlink_setup
-}
-
-env_symlink_setdown() {
+symlink_setdown() {
 	remove_link $HOME/.pam_environment
-}
-
-git_symlink_setdown() {
 	remove_link $XDG_CONFIG_HOME/git/config
-}
-
-gui_symlink_setdown() {
 	remove_link $XDG_CONFIG_HOME/sway/config
-	remove_link $HOME/.Xdefaults
 	remove_link $XDG_CONFIG_HOME/termite/config
-}
-
-gnupg_symlink_setdown() {
+	remove_link $XDG_CONFIG_HOME/user-dirs.dirs
+	remove_link $XDG_CONFIG_HOME/waybar/config
+	remove_link $XDG_CONFIG_HOME/waybar/style.css
+	remove_link $XDG_CONFIG_HOME/waybar/alsa.sh
+	remove_link $XDG_CONFIG_HOME/waybar/brightness.sh
+	remove_link $HOME/.Xdefaults
 	remove_link $HOME/.gnupg/gpg-agent.conf
-}
-
-python_symlink_setdown() {
 	remove_link $XDG_CONFIG_HOME/pip/pip.conf
-}
-
-sh_symlink_setdown() {
 	remove_link $HOME/.profile
 	remove_link $HOME/.bashrc
 	remove_link $ZDOTDIR/.zshrc
 	remove_link $ZDOTDIR/.zlogin
-}
-
-ssh_symlink_setdown() {
 	remove_link $HOME/.ssh/config
 	remove_link $XDG_CONFIG_HOME/systemd/user/ssh-agent.service
-}
-
-tmux_symlink_setdown() {
 	remove_link $HOME/.tmux.conf
-}
-
-vim_symlink_setdown() {
 	remove_link $HOME/.vim/vimrc
 	remove_link $HOME/.vim/filetype.vim
 	remove_link $HOME/.vim/after/ftplugin/html.vim
@@ -143,34 +97,18 @@ vim_symlink_setdown() {
 	remove_link $HOME/.vim/after/ftplugin/json.vim
 	remove_link $HOME/.vim/after/ftplugin/tex.vim
 	remove_link $HOME/.vim/after/ftplugin/text.vim
-}
-
-global_symlink_setdown() {
-	remove_link /etc/vconsole.conf
-	remove_link /usr/local/share/kbd/keymaps/dvp.map
+	#remove_link /etc/vconsole.conf
+	#remove_link /usr/local/share/kbd/keymaps/dvp.map
 	#remove_link /etc/asound.conf
-	remove_link /etc/pacman.d/hooks/mirrorupgrade.hook
-}
-
-all_symlink_setdown() {
-	env_symlink_setdown
-	git_symlink_setdown
-	gnupg_symlink_setdown
-	gui_symlink_setdown
-	python_symlink_setdown
-	sh_symlink_setdown
-	ssh_symlink_setdown
-	tmux_symlink_setdown
-	vim_symlink_setdown
-	#global_symlink_setdown
+	#remove_link /etc/pacman.d/hooks/mirrorupgrade.hook
 }
 
 if test $1 = setup
 then
-	all_symlink_setup
+	symlink_setup
 elif test $1 = setdown
 then
-	all_symlink_setdown
+	symlink_setdown
 else
 	echo please specify setup or setdown
 fi
