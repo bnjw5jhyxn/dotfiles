@@ -25,7 +25,7 @@ prompt off
 PROMPT='%1~ %# '
 if [[ $(tty) = /dev/tty*(#qN) ]]
 then
-	RPROMPT="%(?..%?   )\$(echo '['\$(acpi | grep -o '[CDU]\|[[:digit:]]*%')'%]')   \$(cat /sys/class/backlight/intel_backlight/brightness)   \$(amixer get Master | grep -o '\[[[:digit:].-]*dB\] \[[[:lower:]]*\]')   %*"
+	RPROMPT="%(?..%?   )\$(echo '['\$(acpi | grep -m 1 -o '[CDU]\|[[:digit:]]*%')'%]')   \$(cat /sys/class/backlight/intel_backlight/brightness)   \$(pactl list sinks | grep -o '[[:digit:]]*%' | head -n 1)%   %*"
 fi
 setopt prompt_subst
 
@@ -35,3 +35,6 @@ alias asdf='sudo loadkeys /usr/local/share/kbd/keymaps/dvp.map'
 
 # notify GPG agent of current TTY
 #gpg-connect-agent updatestartuptty /bye > /dev/null
+
+# opam configuration
+test -r /home/steve/.opam/opam-init/init.zsh && . /home/steve/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

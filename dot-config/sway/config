@@ -28,12 +28,15 @@ set $zero asterisk
 set $term termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu -b -fn 'Source Code Pro' | xargs swaymsg exec
+set $menu dmenu_path | bemenu -p '' --fn 'Source Code Pro' | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output eDP-1 {
+	background /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1366x768.png center
+	#transform 90 clockwise
+}
 #
 # Example configuration:
 #
@@ -54,12 +57,6 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
 #
@@ -92,6 +89,59 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
 	tap_button_map lrm
 }
 
+input "1267:1101:Elan_Touchpad" {
+	accel_profile flat
+	click_method clickfinger
+	drag enabled
+	drag_lock disabled
+	dwt enabled
+	#events disabled
+	middle_emulation enabled
+	natural_scroll enabled
+	pointer_accel 1
+	scroll_button disable
+	scroll_factor 1
+	scroll_method two_finger
+	tap enabled
+	tap_button_map lrm
+}
+
+input "1133:16394:Logitech_M325" {
+	accel_profile flat
+	#click_method clickfinger
+	#drag enabled
+	#drag_lock disabled
+	#dwt disabled
+	events enabled
+	left_handed disabled
+	#middle_emulation disabled
+	natural_scroll disabled
+	pointer_accel 1
+	#scroll_button disable
+	scroll_factor 1
+	#scroll_method two_finger
+	#tap enabled
+	#tap_button_map lrm
+}
+
+input "6447:2326:USB_Optical_Mouse" {
+	accel_profile flat
+	#click_method clickfinger
+	#drag enabled
+	#drag_lock disabled
+	#dwt disabled
+	events enabled
+	left_handed disabled
+	#middle_emulation disabled
+	natural_scroll disabled
+	pointer_accel 1
+	#scroll_button disable
+	scroll_factor 1
+	#scroll_method two_finger
+	#tap enabled
+	#tap_button_map lrm
+}
+
 input "1:1:AT_Translated_Set_2_keyboard" {
 	xkb_layout "us,us"
 	xkb_variant "dvp,"
@@ -101,7 +151,8 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 }
 
 seat "seat0" {
-	hide_cursor 100
+	hide_cursor 30000
+	pointer_constraint enable
 }
 
 ### Key bindings
@@ -271,12 +322,20 @@ default_border none
 bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date --iso-8601=seconds).png
 
 # volume control
-bindsym XF86AudioMute exec amixer set Master toggle
-bindsym XF86AudioLowerVolume exec amixer set Master 0.75dB-
-bindsym XF86AudioRaiseVolume exec amixer set Master 0.75dB+
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -1%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +1%
 
 # brightness control
 bindsym XF86MonBrightnessUp exec /home/steve/.config/waybar/brightness.sh up
 bindsym XF86MonBrightnessDown exec /home/steve/.config/waybar/brightness.sh down
+
+# screen lock
+bindsym $mod+x exec swaylock -f -c 000000e0
+
+# miscellaneous applications
+bindsym $mod+q exec qutebrowser --qt-arg platform wayland
+bindsym $mod+c exec discord
+bindsym $mod+m exec multimc
 
 include /etc/sway/config.d/*
