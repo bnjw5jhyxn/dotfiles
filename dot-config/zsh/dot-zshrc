@@ -18,10 +18,11 @@ setopt dvorak
 
 # use vi keys for info
 alias info='info --vi-keys'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 # set prompt
 alias battery_charge="echo '['\$(acpi | grep -o '[CDU]\|[[:digit:]]*%')'%]'"
-prompt off
 PROMPT='%1~ %# '
 if [[ $(tty) = /dev/tty*(#qN) ]]
 then

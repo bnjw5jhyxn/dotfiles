@@ -2,10 +2,10 @@
 
 setting up:
 * `~/.dotstage/dotfiles $ stow --dotfiles .`
-* `~/.dotstage $ stow --ignore=dotfiles .`
+* `~/.dotstage $ stow --dotfiles .`
 
 removing links:
-* `~/.dotstage $ stow -D .`
+* `~/.dotstage $ stow --dotfiles -D .`
 * `~/.dotstage/dotfiles $ stow --dotfiles -D .`
 
 the git config was created by the 'git config' command
