@@ -25,16 +25,17 @@ set $eight exclam
 set $nine equal
 set $zero asterisk
 # Your preferred terminal emulator
-set $term termite
+set $term foot
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | bemenu -p '' --fn 'Source Code Pro' | xargs swaymsg exec --
+#set $menu dmenu_path | bemenu -p '' --fn 'Source Code Pro' | xargs swaymsg exec --
+set $menu bemenu-run -p '' --fn 'Source Code Pro 16' | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output eDP-1 {
-	background /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1366x768.png center
+	background /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png center
 	#transform 90 clockwise
 }
 #
@@ -72,7 +73,7 @@ output eDP-1 {
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-input "2:14:ETPS/2_Elantech_Touchpad" {
+input "type:touchpad" {
 	accel_profile flat
 	click_method clickfinger
 	drag enabled
@@ -89,24 +90,7 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
 	tap_button_map lrm
 }
 
-input "1267:1101:Elan_Touchpad" {
-	accel_profile flat
-	click_method clickfinger
-	drag enabled
-	drag_lock disabled
-	dwt enabled
-	#events disabled
-	middle_emulation enabled
-	natural_scroll enabled
-	pointer_accel 1
-	scroll_button disable
-	scroll_factor 1
-	scroll_method two_finger
-	tap enabled
-	tap_button_map lrm
-}
-
-input "1133:16394:Logitech_M325" {
+input "type:mouse" {
 	accel_profile flat
 	#click_method clickfinger
 	#drag enabled
@@ -124,28 +108,10 @@ input "1133:16394:Logitech_M325" {
 	#tap_button_map lrm
 }
 
-input "6447:2326:USB_Optical_Mouse" {
-	accel_profile flat
-	#click_method clickfinger
-	#drag enabled
-	#drag_lock disabled
-	#dwt disabled
-	events enabled
-	left_handed disabled
-	#middle_emulation disabled
-	natural_scroll disabled
-	pointer_accel 1
-	#scroll_button disable
-	scroll_factor 1
-	#scroll_method two_finger
-	#tap enabled
-	#tap_button_map lrm
-}
-
-input "1:1:AT_Translated_Set_2_keyboard" {
+input "type:keyboard" {
 	xkb_layout "us,us"
 	xkb_variant "dvp,"
-	xkb_options "ctrl:nocaps,grp:alt_shift_toggle"
+	xkb_options "ctrl:nocaps"
 	xkb_capslock disabled
 	xkb_numlock enabled
 }
@@ -322,9 +288,10 @@ default_border none
 bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date --iso-8601=seconds).png
 
 # volume control
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -1%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +1%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym --locked XF86AudioMicMute exec pactl set-sink-mute @DEFAULT_SOURCE@ toggle
 
 # brightness control
 bindsym XF86MonBrightnessUp exec /home/steve/.config/waybar/brightness.sh up

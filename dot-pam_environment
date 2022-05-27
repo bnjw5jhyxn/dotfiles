@@ -11,3 +11,7 @@ SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 # gopath
 GOPATH DEFAULT=@{HOME}/code/go
+
+# editor
+EDITOR DEFAULT=vim
+SUDO_EDITOR DEFAULT=vim
