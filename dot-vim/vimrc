@@ -5,7 +5,7 @@ set nowrap
 set number
 set mouse=
 set encoding=utf8
-colorscheme ron
+colorscheme murphy
 set spelllang=en_us
 set spellfile=$HOME/code/setup/vimspell.utf-8.add
 let mapleader="-"

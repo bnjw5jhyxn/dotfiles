@@ -38,6 +38,9 @@ output eDP-1 {
 	background /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png center
 	#transform 90 clockwise
 }
+output HDMI-A-1 {
+	#transform 270
+}
 #
 # Example configuration:
 #
